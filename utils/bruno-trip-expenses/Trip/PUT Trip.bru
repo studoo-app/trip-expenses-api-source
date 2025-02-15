@@ -1,0 +1,22 @@
+meta {
+  name: PUT Trip
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:8002/api/trips/1
+  body: json
+  auth: none
+}
+
+headers {
+  ~Content-Type: application/ld+json
+}
+
+body:json {
+  {
+    "departureDate":"12-05-2024",
+    "destination":"TOKYO"
+  }
+}

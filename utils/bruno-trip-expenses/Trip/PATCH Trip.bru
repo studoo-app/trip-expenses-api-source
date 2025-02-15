@@ -1,0 +1,21 @@
+meta {
+  name: PATCH Trip
+  type: http
+  seq: 5
+}
+
+patch {
+  url: http://localhost:8002/api/trips/1
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/merge-patch+json
+}
+
+body:json {
+  {
+    "destination":"LOS ANGELES"
+  }
+}

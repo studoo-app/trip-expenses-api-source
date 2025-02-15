@@ -6,9 +6,12 @@ use ApiPlatform\Metadata\ApiResource;
 use App\Repository\TripRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: TripRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    #security: "is_granted('ROLE_USER')"
+)]
 class Trip
 {
     #[ORM\Id]
@@ -17,10 +20,16 @@ class Trip
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Assert\NotBlank(message: 'Please enter a departure date')]
     private ?\DateTimeInterface $departureDate = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Please enter destination')]
     private ?string $destination = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -47,6 +56,18 @@ class Trip
     public function setDestination(string $destination): static
     {
         $this->destination = $destination;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
