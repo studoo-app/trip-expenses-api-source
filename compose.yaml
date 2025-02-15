@@ -1,0 +1,12 @@
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: ./utils/recipes/Dockerfile_app
+    volumes:
+      - ./api:/app
+    ports:
+      - "8002:80"
+    environment:
+      - SERVER_NAME=:80
