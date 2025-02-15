@@ -1,0 +1,9 @@
+api_platform:
+    title: Trip Expenses API
+    description: API for managing trip expenses
+    show_webby: false
+    version: 1.0.0
+    defaults:
+        stateless: true
+        cache_headers:
+            vary: ['Content-Type', 'Authorization', 'Origin']
