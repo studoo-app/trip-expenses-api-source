@@ -7,5 +7,9 @@ meta {
 get {
   url: http://localhost:8002/api/trips/1/expenses
   body: none
-  auth: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3Mzk2NjI2NTMsImV4cCI6MTczOTY2NjI1Mywicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoibGVhQG1haWwuZGV2In0.H70tqcBG9UQxbcxL85jduxmJWgAKGJmLz4NdWxSwE3TyVGYv-V_ZqIIIvf0XKg29jzJ_wzg2R7S-94pW-hlnv7eTiHPVSoeGBws05KKVbfhPpJ1WmxrSr-35W8bmyGdY82KGvEn8htxYm4jvibE9UMz_FqxCfpn8tHCziRuJ1cq9GZc6MaqQE51UEzAfvR0pYiU5szP96b9QcDX_jMniJJ78onbYw29SYpEz-D_xel6GkACkJmYuTXvy4SET0PgJ1Z4ubb3VwqrDxjXGDDmxvIIZ8_tI8em3O2fh6vGVaD8KbGATkV9eN_u8k5_-x-hez_dpAtd2zwzSTxKdbtKyMw
 }
